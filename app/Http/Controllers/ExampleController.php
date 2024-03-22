@@ -15,8 +15,7 @@ class ExampleController extends Controller
      * @return void
      */
     public function index()
-    {   
+    {
         return $this->successResponse("", ["1", "2"]);
     }
-    
 }

@@ -38,7 +38,7 @@ trait ApiResponse
      *
      * @return JsonResponse
      */
-    protected function successResponse(string $message = "", array $data = [], $errors = []): JsonResponse
+    protected function successResponse(string $message = '', array $data = [], $errors = []): JsonResponse
     {
         return $this->baseResponse(
             $message,
@@ -54,7 +54,7 @@ trait ApiResponse
      *
      * @return JsonResponse
      */
-    protected function errorResponse(string $message = "", $errors = [], array $data = []): JsonResponse
+    protected function errorResponse(string $message = '', $errors = [], array $data = []): JsonResponse
     {
         return $this->baseResponse(
             $message,
