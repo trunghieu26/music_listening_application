@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
+
+//Route reset password
+Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
+
+
 //Route login
-Route::get('/login',[LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
 
 
 //Route register
-Route::get('/register',[RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
