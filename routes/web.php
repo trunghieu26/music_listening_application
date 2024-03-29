@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\RegisterController;
@@ -27,4 +28,7 @@ Route::get('/login', [LoginController::class, 'index']);
 
 
 //Route register
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register',[RegisterController::class, 'index']);
+Route::post('/register',[RegisterController::class, 'store']);
+
+Route::get('/password/forgot', [AuthController::class,'forgotPassword'])->name('forgot.password.from');

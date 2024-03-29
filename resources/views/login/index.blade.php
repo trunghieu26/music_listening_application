@@ -7,13 +7,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/login.css">
     <title>Đăng nhập</title>
 </head>
-
 <body>
-    <header>
-        <div>
-
-        </div>
-    </header>
     <section class="login-form">
         <div class="login-common">
             <span class="title-login-form">Đăng nhập vào ứng dụng</span>
@@ -41,7 +35,7 @@
                         </span>
                     </div>
                     <button type="submit" class="submit-login">Đăng nhập</button>
-                    <a href="#" style="font-size: 1rem; display : flex; justify-content : center; text-decoration: underline;  color : #fff;">
+                    <a href="/password/forgot" style="font-size: 1rem; display : flex; justify-content : center; text-decoration: underline;  color : #fff;">
                         Quên mật khẩu của bạn?
                     </a>
                 </form>
