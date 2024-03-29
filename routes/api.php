@@ -20,9 +20,13 @@ Route::group(['controller' => ExampleController::class], function () {
     Route::get('/get', 'index');
 });
 
+Route::post('/password/email', [AuthController::class, 'sendResetLinkEmail']);
+Route::post('/password/reset', [AuthController::class, 'reset']);
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/change-password', [AuthController::class, 'changePassword']);
 });
