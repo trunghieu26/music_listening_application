@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('country_id');
             $table->string('name');
+            $table->string('href');
+            $table->string('id_url');
+            $table->string('album_type');
+            $table->date('release_date');
             $table->integer('count_like');
             $table->timestamps();
 

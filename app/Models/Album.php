@@ -15,6 +15,10 @@ class Album extends Model
         'name',
         'country_id',
         'count_like',
+        'href',
+        'id_url',
+        'album_type',
+        'release_date'
     ];
 
     public function songs(): HasMany

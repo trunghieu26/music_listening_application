@@ -22,6 +22,7 @@ Route::get('/spotify/authenticate', [SpotifyCrawlController::class, 'authenticat
 Route::get('/callback', [SpotifyCrawlController::class, 'handleCallback'])->name('spotify.callback');
 Route::get('/music', [SpotifyCrawlController::class, 'showMusic'])->name('music');
 Route::get('/albums', [SpotifyCrawlController::class, 'getSeveralAlbums']);
+Route::get('/getUrlAlbums', [SpotifyCrawlController::class, 'getUrlAlbums']);
 Route::get('/albums/{albumId}', [SpotifyCrawlController::class, 'getAlbum']);
 Route::get('/new-release', [SpotifyCrawlController::class, 'getNewReleases']);
 
