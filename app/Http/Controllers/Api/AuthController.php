@@ -23,11 +23,11 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         try {
-            $email = $request->email;
+            // $email = $request->email;
             $input = $request->all();
             $input['password'] = bcrypt($input['password']);
             $user = User::create($input);
-            $success['token'] =  $user->createToken('token')->accessToken;
+            // $success['token'] =  $user->createToken('token')->accessToken;
 
             return $this->successResponse('Register successful', ['user' => $user]);
         } catch (\Exception $e) {
@@ -45,7 +45,7 @@ class AuthController extends Controller
                     $user = $request->user();
                     $success = $user->createToken('authToken')->accessToken;
 
-                    return $this->successResponse('Login successful', ['token' => $success, 'user' => $user]);
+                    return $this->successResponse('Login successful', ['bear_token' => $success, 'user' => $user]);
                 } else {
                     return $this->errorResponse('Unauthorised', 401);
                 }
