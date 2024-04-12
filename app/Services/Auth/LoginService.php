@@ -5,10 +5,11 @@ namespace App\Services\Auth;
 use App\ApiResponse\ApiResponse;
 use App\Repositories\UserRepository;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Throwable;
 
-class RegisterService extends BaseService
+class LoginService extends BaseService
 {
     use ApiResponse;
 
@@ -21,13 +22,11 @@ class RegisterService extends BaseService
     {
         $data = $this->data;
         try {
-            $object_user = $this->repository->create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'gender' => $data['gender'],
-                'password' => Hash::make($data['password'])
-            ]);
-            return $object_user; 
+            if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (Throwable $e) {
             return $e;
         }

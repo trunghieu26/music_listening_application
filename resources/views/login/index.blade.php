@@ -12,18 +12,19 @@
         <div class="login-common">
             <span class="title-login-form">Đăng nhập vào ứng dụng</span>
             <div class="form-field">
-                <form>
+                <form class="signIn" action="/login" method="post">
+                    {{ csrf_field() }}
                     <div class="email-or-name">
                         <span>
                             Email hoặc tên người dùng
                         </span>
-                        <input class="form-email" placeholder="Email hoặc tên người dùng">
+                        <input name="email" class="form-email" placeholder="Email hoặc tên người dùng">
                     </div>
                     <div class="password-field">
                         <span>
                             Mật khẩu
                         </span>
-                        <input class="form-password" placeholder="Mật khẩu">
+                        <input name="password" type="password" class="form-password" placeholder="Mật khẩu">
                     </div>
                     <div class="remember-me">
                         <label class="switch" for="checkbox">

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
-use App\Services\Api\Auth\RegisterService;
+use App\Services\Auth\RegisterService;
 use App\Services\Auth\CheckUserExist;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {

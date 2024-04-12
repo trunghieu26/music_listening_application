@@ -27,6 +27,7 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         try {
+            dd(234);
             $email = $request->email;
             $input = $request->all();
             $input['password'] = bcrypt($input['password']);

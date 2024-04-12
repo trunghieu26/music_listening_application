@@ -1,4 +1,4 @@
-<section class="header-sidebar">
+{{-- <section class="header-sidebar">
     <div class="logo-header">
         <img class="logo" src="assets/img/logo.png">
         <span class="text-logo">Sunlʌv</span>
@@ -94,11 +94,12 @@
             </span>
         </div>
     </div> -->
+    @if(Auth::user() == '')
     <div class="content-not-login">
         <div class="playlist-not-login">
             <span style="font-size: 1rem; font-weight:700; color : #fff;">Tạo danh sách phát đầu tiên của bạn</span>
             <span style="font-size: 0.875rem; font-weight:400; color : #fff; margin-top: 8px; margin-bottom : 12px;">Rất dễ! Chúng tôi sẽ giúp bạn</span>
-            <a style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Tạo danh sách phát</a>
+            <a  style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Tạo danh sách phát</a>
         </div>
     </div>
     <div class="content-not-login">
@@ -116,4 +117,4 @@
         <span class="content-bottom">Giới thiệu Quảng cáo</span>
         <span class="content-bottom">Hỗ trợ tiếp cận</span>
     </div>
-</section>
+</section> --}}

@@ -25,7 +25,8 @@ Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
 
 //Route login
 Route::get('/login', [LoginController::class, 'index']);
-
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 //Route register
 Route::get('/register',[RegisterController::class, 'index']);
