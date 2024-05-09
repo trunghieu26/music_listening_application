@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id');
-            $table->string('type_comment');
-            $table->integer('type_comment_id');
-            $table->timestamps();
-
+        Schema::create('top_tracks', function (Blueprint $table) {
+            $table->string('id');
+            $table->string('artist_id');
+            $table->string('preview_url');
+            $table->string('album_id');
+            $table->string('href');
+            $table->string('name');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('top_tracks');
     }
 };

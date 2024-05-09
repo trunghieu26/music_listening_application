@@ -12,18 +12,12 @@ class Album extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
-        'country_id',
-        'count_like',
+        'song_url',
+        'album_type',
+        'images',
+        'release_date',
+        'uri'
     ];
-
-    public function songs(): HasMany
-    {
-        return $this->hasMany(Song::class);
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class);
-    }
 }

@@ -11,8 +11,10 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
+        'href',
         'name',
-        'url_image',
+        'icons'
     ];
 
     public function songs(): HasMany

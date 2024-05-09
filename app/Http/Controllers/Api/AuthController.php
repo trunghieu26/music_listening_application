@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\ApiResponse\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
-use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,10 +22,9 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
         try {
-            dd(234);
             $email = $request->email;
             $input = $request->all();
             $input['password'] = bcrypt($input['password']);

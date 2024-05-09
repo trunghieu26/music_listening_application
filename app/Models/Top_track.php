@@ -4,19 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Artist extends Model
+class Top_track extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'external_urls',
-        'followers',
-        'genres',
-        'images',
-        'name',
-        'type'
+        'preview_url',
+        'album_id',
+        'artist_id',
+        'href',
+        'name'
     ];
 }

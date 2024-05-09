@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('song_charts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('song_id');
-            $table->unsignedBigInteger('chart_id');
+            $table->string('song_id');
+            $table->string('chart_id');
             $table->timestamps();
-
-            $table->foreign('song_id')->references('id')->on('songs')->onDelete('cascade');
-            $table->foreign('chart_id')->references('id')->on('charts')->onDelete('cascade');
         });
     }
 

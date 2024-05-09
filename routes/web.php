@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\ArtistController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\LoginController;
@@ -31,5 +32,8 @@ Route::get('/logout', [LoginController::class, 'logout']);
 //Route register
 Route::get('/register',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'store']);
+Route::get('artist/{id}', [ArtistController::class,'index']);
 
+//Route follow artist
+Route::post('/artist/follow', [ArtistController::class, 'followArtist']);
 Route::get('/password/forgot', [AuthController::class,'forgotPassword'])->name('forgot.password.from');

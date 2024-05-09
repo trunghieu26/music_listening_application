@@ -1,4 +1,4 @@
-{{-- <section class="header-sidebar">
+<section class="header-sidebar">
     <div class="logo-header">
         <img class="logo" src="assets/img/logo.png">
         <span class="text-logo">Sunlʌv</span>
@@ -7,7 +7,7 @@
         <svg width="20" height="20" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M26 27C26 27.5523 25.5523 28 25 28H17.2778C16.7255 28 16.2778 27.5523 16.2778 27V19.0526C16.2778 18.5003 15.8301 18.0526 15.2778 18.0526H11.7222C11.1699 18.0526 10.7222 18.5003 10.7222 19.0526V27C10.7222 27.5523 10.2745 28 9.7222 28H2C1.44772 28 1 27.5523 1 27V7.89769C1 7.54272 1.18817 7.21436 1.49443 7.0349L12.9962 0.295236C13.3075 0.112825 13.6929 0.112251 14.0047 0.293734L25.503 6.98543C25.8107 7.16451 26 7.49369 26 7.84972V27Z" fill="white" />
         </svg>
-        <span class="title-header">Trang chủ</span>
+        <a href="/" style="text-decoration: none" class="title-header">Trang chủ</a>
     </div>
     <div class="search-header">
         <svg width="18" height="20" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,7 @@
             </svg>
         </a>
     </div>
-    <!-- <div class="list-menu">
+    <div class="list-menu">
         <div class="list-menu-item">
             <span>
                 Danh sách bài hát
@@ -93,7 +93,7 @@
                 Danh sách phát
             </span>
         </div>
-    </div> -->
+    </div> 
     @if(Auth::user() == '')
     <div class="content-not-login">
         <div class="playlist-not-login">
@@ -109,7 +109,10 @@
             <a style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Duyệt xem podcast</a>
         </div>
     </div>
+    @else 
 
+    <p>123</p>
+    @endif
     <div class="bottom-left-sidebar">
         <span class="content-bottom">Pháp lý</span>
         <span class="content-bottom">Trung tâm an toàn và quyền riêng tư</span>
@@ -117,4 +120,4 @@
         <span class="content-bottom">Giới thiệu Quảng cáo</span>
         <span class="content-bottom">Hỗ trợ tiếp cận</span>
     </div>
-</section> --}}
+</section>

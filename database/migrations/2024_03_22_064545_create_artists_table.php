@@ -14,14 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('artists', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('country_id');
-            $table->string('url_image');
-            $table->integer('count_like');
+            $table->string('id')->primary();
+            $table->json('external_urls');
+            $table->json('followers');
+            $table->json('genres');
+            $table->json('images');
+            $table->string('name');
+            $table->string('type');
 
             $table->timestamps();
 
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            // $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 

@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('country_id');
+            $table->string('id');
             $table->string('name');
-            $table->integer('count_like');
+            $table->string('song_url');
+            $table->string('album_type');
+            $table->json('images');
+            $table->date('release_date');
+            $table->string('uri');
             $table->timestamps();
-
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 

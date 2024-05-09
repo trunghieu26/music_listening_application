@@ -13,18 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('songs', function (Blueprint $table) {
-            $table->id();
-            $table->string('country_id');
-            $table->string('album_id');
-            $table->string('category_id');
+        Schema::create('artist_albums', function (Blueprint $table) {
+            $table->string('id');
+            $table->string('album_type');
+            $table->string('artists_id');
+            $table->json('external_urls');
+            $table->string('href');
+            $table->json('images');
             $table->string('name');
-            $table->string('url_image');
-            $table->string('url_song');
-            $table->integer('user_upload');
-            $table->integer('count_like');
+            $table->date('release_date');
+            $table->integer('total_tracks');
             $table->timestamps();
-
         });
     }
 
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('songs');
+        Schema::dropIfExists('artist_albums');
     }
 };
