@@ -10,8 +10,11 @@ use GuzzleHttp\Client;
 use Aerni\Spotify\Spotify;
 use App\Models\Album;
 use App\Models\Artist;
-use App\Models\Artist_album;
+use App\Models\Follower;
+use App\Models\PlaylistSong;
 use App\Models\Top_track;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -36,7 +39,6 @@ class HomeController extends Controller
     public function handleCallback(Request $request)
     {
         $code = $request->query('code');
-        // dd($code);
 
         $response = $this->httpClient->post('https://accounts.spotify.com/api/token', [
             'form_params' => [
@@ -67,9 +69,7 @@ class HomeController extends Controller
                 'Accept' => 'application/json',
             ],
         ]);
-
         return $albums = json_decode($response->getBody()->getContents(), true);
-        
     }
 
     public function getAlbumsArtist()
@@ -116,8 +116,7 @@ class HomeController extends Controller
     }
 
     public function index()
-    {   
-        
+    {    
         // $artist = $this->getTrack();
         // dd($artist);
         // foreach($artist as $ar) {
@@ -139,6 +138,10 @@ class HomeController extends Controller
         //     //     'name' => $ar['name'],
         //     // ]);
         // }
+        if(empty(Auth::user())) {
+            return view("login.index");
+        }
+        $user_id = Auth::user()->id;
         
         $top_hits = Album::inRandomOrder()->distinct()->limit(6)->get();
         foreach($top_hits as $top_hit) {
@@ -149,6 +152,15 @@ class HomeController extends Controller
         foreach($eps as $ep) {
             $ep['image'] = (json_decode($ep->images)[0])->url;
         }
+        $artist_like = DB::table('followers')
+            ->join('artists', 'artists.id', '=', 'followers.artist_id')
+            ->where('user_id', '=', $user_id)
+            ->get();
+            
+        foreach($artist_like as $like) {
+            $url_image = (json_decode($like->images)[0])->url;
+            $like->image= $url_image;
+        }
         
         $artists = Artist::inRandomOrder()->distinct()->limit(6)->get();
         foreach($artists as $artist) {
@@ -158,6 +170,8 @@ class HomeController extends Controller
             $artist['image'] = (json_decode($artist->images)[0])->url;
         }
 
-        return view("welcome",compact('top_hits','eps', 'artists'));
+        $count_song_like = PlaylistSong::where('user_id', $user_id)->count();
+
+        return view("welcome",compact('top_hits','eps', 'artists','artist_like', 'count_song_like'));
     }
 }

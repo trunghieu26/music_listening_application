@@ -11,8 +11,8 @@ class PlaylistSong extends Model
     use HasFactory;
 
     protected $fillable = [
-        'playlist_id',
-        'song_id',
+        'album_id',
+        'user_id',
     ];
 
     public function song(): HasOne

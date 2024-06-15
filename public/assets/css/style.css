@@ -88,14 +88,18 @@ body {
     display: flex;
     margin-top: 12px;
 }
+.liked-song-result {
+    display: flex;
+    margin-top: 12px;
+}
 .text-common {
     color: #fff;
     font-size: 16px;
     font-weight: 600;
 }
 .sub-text-common {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 300;
     color: #c9c9c9;
 }
 .text-liked-song {
@@ -323,10 +327,6 @@ body {
 .dropdown-item {
     color: #fff !important;
 }
-.image-container {
-    position: relative;
-    display: inline-block;
-}
 .play-button {
     position: absolute;
     bottom: 8px;
@@ -334,6 +334,10 @@ body {
     /* transform: translate(-50%, -50%); */
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+.image-container {
+    position: relative;
+    display: inline-block;
 }
 .image-container:hover .play-button {
     opacity: 1;

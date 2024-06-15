@@ -15,12 +15,17 @@ $( document ).ready(function() {
     $(".list-song").on("click", function() {
         $(this).addClass('active');
     })
-    $(".list-menu").slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-    })
+    // $(".list-menu").slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     infinite: true,
+    // })
     $(".prev-button").on("click", function () {
         window.history.back();
     })
+
+    $(".liked-song-result").on("click", function () {
+        window.location.href = 'http://127.0.0.1:8000/playlist'
+    })
+
 })

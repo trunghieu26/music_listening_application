@@ -1,4 +1,4 @@
-<navbar class="navbar-header">
+<navbar style="height:60px; " class="navbar-header">
     <div class="left-navbar">
         <svg class="prev-button" style="margin-right: 8px;" width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle opacity="0.5" cx="20" cy="20" r="20" fill="black" />
@@ -30,10 +30,8 @@
                 </svg>
             </button>
             <div style="background: #212121; margin-top : 8px; color : #fff; border : 1px solid;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Tài khoản</a>
-                <a class="dropdown-item" href="#">Hồ sơ</a>
-                <a class="dropdown-item" href="#">Nâng cấp lên premium</a>
-                <a class="dropdown-item" href="#">Cài đặt</a>
+                <a class="dropdown-item" href="">Tài khoản</a>
+                <a class="dropdown-item" href="/user/profile">Hồ sơ</a>
                 <hr style="margin: 0;">
                 <a href="/logout" class="dropdown-item" href="#">Đăng xuất</a>
             </div>

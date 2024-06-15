@@ -4,7 +4,9 @@ use App\Http\Controllers\Web\ArtistController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\LoginController;
+use App\Http\Controllers\Web\PlaylistController;
 use App\Http\Controllers\Web\RegisterController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +38,17 @@ Route::get('artist/{id}', [ArtistController::class,'index']);
 
 //Route follow artist
 Route::post('/artist/follow', [ArtistController::class, 'followArtist']);
+Route::post('/artist/unFollow', [ArtistController::class, 'unFollowArtist']);
+
+//Route
+Route::get('/playlist', [PlaylistController::class, 'index']);
+//Route forgot password
 Route::get('/password/forgot', [AuthController::class,'forgotPassword'])->name('forgot.password.from');
+
+
+//Route user
+Route::get('user/profile',[UserController::class, 'profile']);
+
+//Route like song
+Route::post('artist/like-song',[ArtistController::class, 'likeSong']);
+Route::post('artist/dislike-song',[ArtistController::class, 'dislikeSong']);

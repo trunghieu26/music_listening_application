@@ -3,10 +3,10 @@
 @endpush
 @include('layouts.header')
 <div style="display: flex; justify-content : space-between;" class="">
-    <div style="width: 300px;" class="">
+    <div style="width: 400px;" class="">
         @include('layouts.left-sidebar')
     </div>
-    <div class="">
+    <div style="width: 100%; margin-left : 12px;" class="">
         @include('layouts.navbar')
         <div class="content-home">
             @if(Auth::user() == '')
@@ -87,7 +87,12 @@
                     <div class="playlist-albums">
                         @foreach ($eps as $ep)
                         <div class="detail-playlist">
-                            <img src="{{$ep->image}}">
+                            <div class="image-container">
+                                <img src="{{$ep->image}}">
+                                <div class="play-button">
+                                    <img class="play-image-top-hit" style="height: 52px; width : 52px;" src="/assets/img/play.png">
+                                </div>
+                            </div>
                             <div class="group-title">
                                 <span class="title-detail-playlist">{{$ep->name}}</span>
                                 <span class="content-detail-playlist">{{$ep->album_type}}</span>
@@ -103,6 +108,9 @@
                         <div data-id="{{$artist->id_new}}" class="detail-artist">
                             <div class="image-container">
                                 <img src="{{$artist->image}}" alt="Image">
+                                <div class="play-button">
+                                    <img class="play-image-top-hit" style="height: 52px; width : 52px;" src="/assets/img/play.png">
+                                </div>
                             </div>
                             <div class="group-title">
                                 <span class="title-detail-artist">{{$artist->name}}</span>
@@ -120,6 +128,7 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/home.js"></script>
 </body>
 </html>

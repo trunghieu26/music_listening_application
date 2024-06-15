@@ -1,6 +1,6 @@
 <section class="header-sidebar">
     <div class="logo-header">
-        <img class="logo" src="assets/img/logo.png">
+        <img class="logo" src="/assets/img/logo.png">
         <span class="text-logo">Sunlʌv</span>
     </div>
     <div class="home-header">
@@ -65,16 +65,16 @@
                 Gần đây
             </span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" width="10" height="2" fill="#D9D9D9" />
-                <rect width="2" height="2" fill="#D9D9D9" />
-                <rect y="6" width="2" height="2" fill="#D9D9D9" />
+                <rect x="4" width="10" height="2" fill="#D9D9D9"/>
+                <rect width="2" height="2" fill="#D9D9D9"/>
+                <rect y="6" width="2" height="2" fill="#D9D9D9"/>
                 <rect y="12" width="2" height="2" fill="#D9D9D9" />
-                <rect x="4" y="12" width="10" height="2" fill="#D9D9D9" />
-                <rect x="4" y="6" width="10" height="2" fill="#D9D9D9" />
+                <rect x="4" y="12" width="10" height="2" fill="#D9D9D9"/>
+                <rect x="4" y="6" width="10" height="2" fill="#D9D9D9"/>
             </svg>
         </a>
     </div>
-    <div class="liked-song">
+    <div class="liked-song-result">
         <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="47" height="47" rx="5" fill="url(#paint0_linear_2_436)" />
             <path d="M22.5009 13.9024C25.2022 11.2783 29.3767 11.3654 31.9791 14.1861C34.5803 17.0081 34.67 21.5023 32.2505 24.4338L22.4986 35L12.7491 24.4338C10.3296 21.5023 10.4204 17.0006 13.0205 14.1861C15.6252 11.3691 19.7916 11.2746 22.5009 13.9024Z" fill="white" />
@@ -86,11 +86,11 @@
             </defs>
         </svg>
         <div class="text-liked-song">
-            <span class="text-common">
+            <a href="/playlist" class="text-common">
                 Danh sách nhạc đã thích
-            </span>
+            </a>
             <span class="sub-text-common">
-                Danh sách phát
+                Danh sách phát . {{$count_song_like}} bài hát
             </span>
         </div>
     </div> 
@@ -99,19 +99,28 @@
         <div class="playlist-not-login">
             <span style="font-size: 1rem; font-weight:700; color : #fff;">Tạo danh sách phát đầu tiên của bạn</span>
             <span style="font-size: 0.875rem; font-weight:400; color : #fff; margin-top: 8px; margin-bottom : 12px;">Rất dễ! Chúng tôi sẽ giúp bạn</span>
-            <a  style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Tạo danh sách phát</a>
+            <a href="/login" style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Tạo danh sách phát</a>
         </div>
     </div>
     <div class="content-not-login">
         <div class="podcast-not-login">
             <span style="font-size: 1rem; font-weight:700; color : #fff;">Hãy cùng tìm và theo dõi một số podcast</span>
             <span style="font-size: 0.875rem; font-weight:400; color : #fff; margin-top: 8px; margin-bottom : 12px;">Chúng tôi sẽ cập nhật cho bạn thông tin về các tập mới</span>
-            <a style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Duyệt xem podcast</a>
+            <a href="/login" style="padding : 14px 24px; border-radius : 20px; background-color : #fff; font-size: 0.875rem; font-weight:600; width : fit-content;">Duyệt xem podcast</a>
         </div>
     </div>
-    @else 
-
-    <p>123</p>
+    @else
+        <div class="list-song-artist-like">
+            @foreach($artist_like as $like)
+                <div style="display: flex; margin-top: 12px;" class="">
+                    <img style="width: 48px; height : 48px; border-radius : 50px;" src="{{$like->image}}">
+                    <div style="color: #fff; display : grid; margin-left: 6px;">
+                        <a style="text-decoration: none" href="/artist/{{$like->artist_id}}">{{$like->name}}</a>
+                        <a style="text-decoration: none" href="/artist/{{$like->artist_id}}">Nghệ sĩ </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     @endif
     <div class="bottom-left-sidebar">
         <span class="content-bottom">Pháp lý</span>
